@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420"><defs><linearGradient id="g"><stop stop-color="#07152d"/><stop offset="1" stop-color="#153e5c"/></linearGradient></defs><rect width="1200" height="420" rx="24" fill="url(#g)"/><g stroke="#3c7898" opacity=".2"><path d="M0 100H1200M0 200H1200M0 300H1200M200 0V420M400 0V420M600 0V420M800 0V420M1000 0V420"/></g><text x="70" y="75" font-family="Arial" font-size="27" fill="#6fe9e0">ZubairLabs / DATA SCIENCE</text><text x="70" y="185" font-family="Arial" font-weight="bold" font-size="84" fill="white">GridPulse <tspan fill="#2ce6d4">AI</tspan></text><text x="75" y="237" font-family="Arial" font-size="29" fill="#bdd4e6">Energy Demand Forecasting &amp; Consumption Intelligence</text><text x="75" y="304" font-family="Arial" font-size="20" fill="#84e3f3">FORECASTING  /  ANOMALIES  /  INTERACTIVE ANALYTICS</text><path d="M705 340L760 305L820 320L860 230L900 260L950 170L1000 200L1060 108L1125 140" stroke="#2ce6d4" stroke-width="7" fill="none" stroke-linecap="round"/><text x="75" y="378" font-family="Arial" font-size="16" fill="#9db5c8">Reproducible synthetic-data prototype · No paid APIs</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-label="GridPulse AI: energy demand forecasting and consumption intelligence by ZubairLabs">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#041026"/><stop offset=".6" stop-color="#071A36"/><stop offset="1" stop-color="#0A3550"/></linearGradient>
+<radialGradient id="glow1" cx=".1" cy="0" r=".7"><stop offset="0" stop-color="#22D3EE" stop-opacity=".28"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></radialGradient>
+<radialGradient id="glow2" cx="1" cy="1" r=".6"><stop offset="0" stop-color="#10B981" stop-opacity=".30"/><stop offset="1" stop-color="#10B981" stop-opacity="0"/></radialGradient>
+<linearGradient id="pulse" x1="0" x2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#3B82F6"/></linearGradient>
+</defs>
+<rect width="1200" height="420" rx="24" fill="url(#bg)"/>
+<rect width="1200" height="420" rx="24" fill="url(#glow1)"/>
+<rect width="1200" height="420" rx="24" fill="url(#glow2)"/>
+<g stroke="#3C7898" opacity=".18"><path d="M0 100H1200M0 200H1200M0 300H1200M200 0V420M400 0V420M600 0V420M800 0V420M1000 0V420"/></g>
+<text x="70" y="78" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="4" fill="#22D3EE">ZUBAIRLABS · ENERGY INTELLIGENCE</text>
+<text x="66" y="178" font-family="Arial,sans-serif" font-weight="bold" font-size="84" fill="#FFFFFF">GridPulse <tspan fill="#10B981">AI</tspan></text>
+<text x="72" y="228" font-family="Arial,sans-serif" font-size="27" fill="#BFD4E6">Energy Demand Forecasting &amp; Consumption Intelligence</text>
+<g font-family="Arial,sans-serif" font-size="15" font-weight="700">
+<rect x="72" y="262" width="138" height="34" rx="17" fill="#22D3EE" fill-opacity=".14" stroke="#22D3EE" stroke-opacity=".55"/><text x="141" y="284" text-anchor="middle" fill="#A5F3FC">FORECASTING</text>
+<rect x="220" y="262" width="124" height="34" rx="17" fill="#10B981" fill-opacity=".14" stroke="#10B981" stroke-opacity=".55"/><text x="282" y="284" text-anchor="middle" fill="#A7F3D0">ANOMALIES</text>
+<rect x="354" y="262" width="96" height="34" rx="17" fill="#3B82F6" fill-opacity=".16" stroke="#3B82F6" stroke-opacity=".6"/><text x="402" y="284" text-anchor="middle" fill="#BFDBFE">COST</text>
+<rect x="460" y="262" width="136" height="34" rx="17" fill="#F59E0B" fill-opacity=".14" stroke="#F59E0B" stroke-opacity=".55"/><text x="528" y="284" text-anchor="middle" fill="#FDE68A">SYNTHETIC DATA</text>
+</g>
+<text x="72" y="372" font-family="Arial,sans-serif" font-size="16" fill="#8FA9C0">Reproducible portfolio prototype · scikit-learn · Streamlit · no paid APIs</text>
+<!-- demand history (solid) then forecast (dashed) with band -->
+<path d="M968 214 L1000 160 L1032 186 L1064 132 L1096 168 L1128 118 L1128 214 L1096 222 L1064 176 L1032 232 L1000 206 L968 214 Z" fill="#10B981" fill-opacity=".16"/>
+<path d="M660 300 L692 278 L724 292 L756 240 L788 262 L820 214 L852 236 L884 176 L916 206 L948 150 L968 184" fill="none" stroke="url(#pulse)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M968 184 L1000 184 L1032 208 L1064 154 L1096 194 L1128 166" fill="none" stroke="#10B981" stroke-width="6" stroke-dasharray="12 9" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="968" y1="110" x2="968" y2="330" stroke="#94A3B8" stroke-width="2" stroke-dasharray="4 6"/>
+<text x="960" y="352" text-anchor="end" font-family="Arial,sans-serif" font-size="14" fill="#7DD3FC">actual</text>
+<text x="978" y="352" font-family="Arial,sans-serif" font-size="14" fill="#6EE7B7">forecast</text>
+<circle cx="820" cy="214" r="9" fill="none" stroke="#EF4444" stroke-width="3"/>
+</svg>

@@ -1,1 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220"><rect width="1200" height="220" rx="20" fill="#091b33"/><text x="45" y="50" font-family="Arial" font-size="25" fill="white">GridPulse AI · Processing Architecture</text><g font-family="Arial" font-size="18" fill="white" text-anchor="middle"><rect x="35" y="85" width="195" height="85" rx="12" fill="#17415a" stroke="#2bded1"/><text x="132" y="135">Hourly data</text><rect x="270" y="85" width="195" height="85" rx="12" fill="#17415a" stroke="#2bded1"/><text x="367" y="135">Validation</text><rect x="505" y="85" width="195" height="85" rx="12" fill="#17415a" stroke="#2bded1"/><text x="602" y="135">Lag features</text><rect x="740" y="85" width="195" height="85" rx="12" fill="#17415a" stroke="#2bded1"/><text x="837" y="135">ML insights</text><rect x="975" y="85" width="195" height="85" rx="12" fill="#17415a" stroke="#2bded1"/><text x="1072" y="135">Streamlit UI</text></g><g stroke="#2bded1" stroke-width="4"><path d="M230 128h40M465 128h40M700 128h40M935 128h40"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-label="GridPulse AI processing architecture">
+<defs><linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="#041026"/><stop offset="1" stop-color="#0A2A44"/></linearGradient></defs>
+<rect width="1200" height="250" rx="20" fill="url(#bg)"/>
+<text x="40" y="48" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="3" fill="#22D3EE">GRIDPULSE AI · PROCESSING ARCHITECTURE</text>
+<rect x="40" y="86" width="168" height="104" rx="14" fill="#0E2C47" stroke="#22D3EE" stroke-width="2"/>
+<text x="124.0" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Hourly data</text>
+<text x="124.0" y="160" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#A5F3FC">demo or CSV upload</text>
+<rect x="234" y="86" width="168" height="104" rx="14" fill="#0E2C47" stroke="#22D3EE" stroke-width="2"/>
+<text x="318.0" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Validate</text>
+<text x="318.0" y="160" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#A5F3FC">gaps · duplicates · range</text>
+<path d="M211 138 H229" stroke="#22D3EE" stroke-width="3"/><path d="M223 132 L230 138 L223 144" fill="none" stroke="#22D3EE" stroke-width="3"/>
+<rect x="428" y="86" width="168" height="104" rx="14" fill="#0E2C47" stroke="#22D3EE" stroke-width="2"/>
+<text x="512.0" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Past-only features</text>
+<text x="512.0" y="160" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#A5F3FC">lags 24 h &amp; 168 h · mean</text>
+<path d="M405 138 H423" stroke="#22D3EE" stroke-width="3"/><path d="M417 132 L424 138 L417 144" fill="none" stroke="#22D3EE" stroke-width="3"/>
+<rect x="622" y="86" width="168" height="104" rx="14" fill="#0E2C47" stroke="#10B981" stroke-width="2"/>
+<text x="706.0" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Models</text>
+<text x="706.0" y="160" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#A5F3FC">Random Forest · IsoForest</text>
+<path d="M599 138 H617" stroke="#22D3EE" stroke-width="3"/><path d="M611 132 L618 138 L611 144" fill="none" stroke="#22D3EE" stroke-width="3"/>
+<rect x="816" y="86" width="168" height="104" rx="14" fill="#0E2C47" stroke="#10B981" stroke-width="2"/>
+<text x="900.0" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Insight</text>
+<text x="900.0" y="160" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#A5F3FC">forecast · anomalies · cost</text>
+<path d="M793 138 H811" stroke="#22D3EE" stroke-width="3"/><path d="M805 132 L812 138 L805 144" fill="none" stroke="#22D3EE" stroke-width="3"/>
+<rect x="1010" y="86" width="168" height="104" rx="14" fill="#0E2C47" stroke="#22D3EE" stroke-width="2"/>
+<text x="1094.0" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Streamlit UI</text>
+<text x="1094.0" y="160" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#A5F3FC">6 pages · light / dark</text>
+<path d="M987 138 H1005" stroke="#22D3EE" stroke-width="3"/><path d="M999 132 L1006 138 L999 144" fill="none" stroke="#22D3EE" stroke-width="3"/>
+<text x="40" y="226" font-family="Arial,sans-serif" font-size="13" fill="#7B95AD">gridpulse/core.py does all data and model work; app.py only displays it. Everything runs locally with no external services.</text></svg>

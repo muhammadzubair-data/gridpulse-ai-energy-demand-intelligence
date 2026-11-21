@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-label="Recursive 24-hour forecasting and day-ahead backtest">
+<defs><linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="#041026"/><stop offset="1" stop-color="#0A2A44"/></linearGradient></defs>
+<rect width="1200" height="330" rx="20" fill="url(#bg)"/>
+<text x="40" y="46" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="3" fill="#22D3EE">FORECASTING PIPELINE</text>
+<text x="40" y="72" font-family="Arial,sans-serif" font-size="15" fill="#BFD4E6">Every input is either observed before the origin, a calendar value, an explicit temperature assumption, or the model's own earlier prediction.</text>
+<line x1="700" y1="170" x2="1140" y2="170" stroke="#335574" stroke-width="2"/>
+<rect x="60" y="150" width="640" height="40" rx="8" fill="#22D3EE" fill-opacity=".16" stroke="#22D3EE"/>
+<text x="380" y="176" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#A5F3FC">Observed history (actual demand + measured temperature)</text>
+<line x1="700" y1="110" x2="700" y2="230" stroke="#F8FAFC" stroke-width="2" stroke-dasharray="5 5"/><text x="700" y="102" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">forecast origin (last reading)</text>
+<rect x="708" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.90"/>
+<rect x="726" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.88"/>
+<rect x="744" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.85"/>
+<rect x="762" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.82"/>
+<rect x="780" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.80"/>
+<rect x="798" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.78"/>
+<rect x="816" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.75"/>
+<rect x="834" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.72"/>
+<rect x="852" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.70"/>
+<rect x="870" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.68"/>
+<rect x="888" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.65"/>
+<rect x="906" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.62"/>
+<rect x="924" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.60"/>
+<rect x="942" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.57"/>
+<rect x="960" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.55"/>
+<rect x="978" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.53"/>
+<rect x="996" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.50"/>
+<rect x="1014" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.47"/>
+<rect x="1032" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.45"/>
+<rect x="1050" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.42"/>
+<rect x="1068" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.40"/>
+<rect x="1086" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.38"/>
+<rect x="1104" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.35"/>
+<rect x="1122" y="152" width="14" height="36" rx="3" fill="#10B981" fill-opacity="0.32"/>
+<text x="924" y="140" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#6EE7B7">24 recursive steps (forecast)</text>
+<path d="M300 148 C 420 100, 600 100, 716 148" fill="none" stroke="#3B82F6" stroke-width="2.5"/><text x="430" y="98" font-family="Arial,sans-serif" font-size="13" fill="#93C5FD">lag 168 h (observed)</text>
+<path d="M590 192 C 640 236, 680 236, 716 192" fill="none" stroke="#3B82F6" stroke-width="2.5"/><text x="560" y="246" font-family="Arial,sans-serif" font-size="13" fill="#93C5FD">lag 24 h (observed)</text>
+<path d="M760 190 C 790 250, 830 250, 850 190" fill="none" stroke="#F59E0B" stroke-width="2.5"/><text x="800" y="262" font-family="Arial,sans-serif" font-size="13" fill="#FDE68A">mean 24 h includes earlier predictions</text>
+
+
+
+
+<rect x="60" y="276" width="264" height="40" rx="10" fill="#0E2C47" stroke="#335574"/><text x="74" y="301" font-family="Arial,sans-serif" font-size="14" fill="#FFFFFF"><tspan font-weight="700">Temperature:</tspan> <tspan fill="#A5F3FC">repeat the last 24 h</tspan></text><rect x="332" y="276" width="264" height="40" rx="10" fill="#0E2C47" stroke="#335574"/><text x="346" y="301" font-family="Arial,sans-serif" font-size="14" fill="#FFFFFF"><tspan font-weight="700">Backtest:</tspan> <tspan fill="#A5F3FC">daily origin at 23:00</tspan></text><rect x="604" y="276" width="264" height="40" rx="10" fill="#0E2C47" stroke="#335574"/><text x="618" y="301" font-family="Arial,sans-serif" font-size="14" fill="#FFFFFF"><tspan font-weight="700">Baselines:</tspan> <tspan fill="#A5F3FC">yesterday / last week</tspan></text><rect x="876" y="276" width="264" height="40" rx="10" fill="#0E2C47" stroke="#335574"/><text x="890" y="301" font-family="Arial,sans-serif" font-size="14" fill="#FFFFFF"><tspan font-weight="700">Band:</tspan> <tspan fill="#A5F3FC">10–90th pct of past errors</tspan></text></svg>
