@@ -110,22 +110,24 @@ def fmt_money(x, cur):
 
 
 # ------------------------------------------------------------------ data + model (cached)
-@st.cache_data(show_spinner=False, max_entries=6)
+@st.cache_data(show_spinner=False, max_entries=4)
 def load_demo(days: int, seed: int) -> pd.DataFrame:
     return demo(days, seed)
 
 
-@st.cache_resource(show_spinner=False, max_entries=6)
+# Each evaluation holds two Random Forests plus backtest tables (about 30-70 MB), so keep only a few
+# and let uploaded-data entries expire; widget changes elsewhere never retrain.
+@st.cache_resource(show_spinner=False, max_entries=3, ttl=3600)
 def get_eval(key: str, _d: pd.DataFrame):
     return evaluate(_d)
 
 
-@st.cache_data(show_spinner=False, max_entries=12)
+@st.cache_data(show_spinner=False, max_entries=8, ttl=3600)
 def get_flags(key: str, rate: float, _d: pd.DataFrame) -> pd.DataFrame:
     return anomalies(_d, rate)
 
 
-@st.cache_data(show_spinner=False, max_entries=24)
+@st.cache_data(show_spinner=False, max_entries=24, ttl=3600)
 def get_forecast(key: str, horizon: int, mode: str, offset: float, _d: pd.DataFrame, _model) -> pd.DataFrame:
     return forecast(_d, horizon, _model, mode, offset)
 
