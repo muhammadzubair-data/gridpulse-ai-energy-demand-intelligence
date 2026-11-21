@@ -27,7 +27,7 @@ ACTUAL, FORECAST, MODEL = "#0EA5E9", "#10B981", "#A855F7"
 MAX_UPLOAD_MB = 15
 
 st.set_page_config(page_title="GridPulse AI | ZubairLabs", page_icon=str(ASSETS / "icon.svg"), layout="wide",
-                   initial_sidebar_state="expanded",
+                   initial_sidebar_state="auto",
                    menu_items={"About": "GridPulse AI by ZubairLabs — energy demand forecasting on synthetic demonstration data.",
                                "Report a bug": REPO + "/issues"})
 

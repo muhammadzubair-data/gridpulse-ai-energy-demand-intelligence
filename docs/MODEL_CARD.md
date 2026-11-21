@@ -49,7 +49,7 @@ Permutation importance (holdout MAE increase, kWh): lag168 2.82, temperature 2.4
 
 Empirical 80% band at horizon 1: −11.0 to +8.0 kWh around the forecast; at horizon 24: −11.2 to +7.4 kWh.
 
-Anomaly screen at 2%: 176 hours flagged; precision 0.64, recall 0.68 against the 167 injected hours.
+Anomaly screen at 2%: 176 hours flagged; precision 0.65, recall 0.68 (114 of 167 injected hours) with the pinned dependencies used in CI and on Streamlit Cloud (0.64 with pandas 3).
 
 ## Leakage safeguards (tested)
 

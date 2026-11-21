@@ -6,6 +6,7 @@
 A reproducible machine-learning portfolio project by <a href="https://zubairlabs.com">ZubairLabs</a>, built on clearly labelled synthetic data.</p>
 
 <p align="center">
+  <a href="https://gridpulse-ai-zubairlabs.streamlit.app"><img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Open in Streamlit"></a>
   <a href="https://github.com/muhammadzubair-data/gridpulse-ai-energy-demand-intelligence/actions/workflows/ci.yml"><img src="https://github.com/muhammadzubair-data/gridpulse-ai-energy-demand-intelligence/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI status"></a>
   <img src="https://img.shields.io/badge/Python-3.11%20%7C%203.12-3776AB?logo=python&logoColor=white" alt="Python 3.11 and 3.12">
   <img src="https://img.shields.io/badge/Streamlit-6%20pages-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit">
@@ -16,6 +17,7 @@ A reproducible machine-learning portfolio project by <a href="https://zubairlabs
 </p>
 
 <p align="center">
+  <a href="#live-demo">Live demo</a> ·
   <a href="#key-capabilities">Capabilities</a> ·
   <a href="#dashboard-screenshots">Screenshots</a> ·
   <a href="#model-evaluation-methodology-and-results">Results</a> ·
@@ -25,6 +27,21 @@ A reproducible machine-learning portfolio project by <a href="https://zubairlabs
 
 > [!IMPORTANT]
 > **Educational prototype, not a production forecasting system.** By default every reading comes from a documented simulation in [`gridpulse/core.py`](gridpulse/core.py). The metrics below show how well the model recovers that simulated pattern. They are not evidence of real-world accuracy, and no energy or cost savings are claimed. There is no live meter, weather service or utility connection.
+
+## Live demo
+
+**https://gridpulse-ai-zubairlabs.streamlit.app**
+
+Deployed on Streamlit Community Cloud (Python 3.12, entry point `app.py`, branch `main`) and checked in a browser on 21 November 2026:
+
+- all six pages load, and the day-ahead MAE (6.55 kWh), baselines and forecast (3.11 MWh for the next 24 h) match the numbers below;
+- changing the horizon to 48 h and the temperature by +4 °C updates the forecast and shows the beyond-24-hour warning;
+- the anomaly screen and the flat / time-of-use tariff switch respond as expected;
+- a deliberately messy CSV (a duplicate timestamp and a 2-hour gap) was repaired, analysed, and stayed the active data source while moving between pages.
+
+The first visit after a quiet period may show Streamlit's "waking up" screen; training and the backtest then take a few seconds and are cached.
+
+<p align="center"><img src="assets/screenshots/live-forecast.png" width="100%" alt="The deployed app on streamlit.app showing the 48-hour forecast with a +4 °C temperature scenario"></p>
 
 ## Contents
 
@@ -250,7 +267,7 @@ What this shows:
 
 **Feature importance** (increase in holdout MAE when a feature is shuffled): lag 168 h 2.82 kWh, temperature 2.40, hour 2.30, weekday 1.33, lag 24 h 1.12, mean 24 h 0.39.
 
-**Anomaly screen** (share of hours flagged = 2%, whole year): 176 hours flagged (68 higher than expected, 79 lower, 29 flat / stuck). Against the 167 injected hours: **precision 64%, recall 68%**. Real meters have no such answer key, so treat flags as a review list, not a verdict.
+**Anomaly screen** (share of hours flagged = 2%, whole year): 176 hours flagged (67 higher than expected, 79 lower, 30 flat / stuck). Against the 167 injected hours: **precision 65%, recall 68%** (114 caught). These are the figures with the pinned dependencies used in CI and on Streamlit Cloud; with pandas 3 the rolling median differs very slightly and one hour changes (64% precision). Real meters have no such answer key, so treat flags as a review list, not a verdict.
 
 More detail in the [model card](docs/MODEL_CARD.md).
 
@@ -334,12 +351,21 @@ GitHub Actions ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs the
 
 ## Deploying to Streamlit Community Cloud
 
+The live app runs with exactly these settings:
+
 1. Fork or push this repository to GitHub.
 2. At [share.streamlit.io](https://share.streamlit.io) choose **Create app**, select the repository, branch `main` and main file `app.py`.
-3. Under **Advanced settings** choose Python 3.12. No secrets are needed.
+3. Under **Advanced settings** choose Python 3.12. No secrets, no `packages.txt` and no paid services are needed.
 4. Deploy. `.streamlit/config.toml` carries both themes and caps uploads at 15 MB.
 
-Uploaded files stay in the visitor's own session and are never written to disk. Even so, don't upload sensitive meter data to a public deployment you haven't reviewed.
+How it is set up for the free tier:
+
+- **Training runs once per dataset.** `evaluate()` (two Random Forests plus the backtest, about 5 s for a year) is cached with `st.cache_resource`; forecasts, anomaly flags and the demo data are cached with `st.cache_data`. Moving a slider or changing a tariff never retrains.
+- **Memory is bounded.** Each cached evaluation is roughly 30–70 MB, so at most three are kept and entries expire after an hour.
+- **Nothing is written to disk.** Uploaded files are validated in memory and stored only in the visitor's own session, so visitors never see each other's data and no shared file is overwritten. Model files are only written by `scripts/train.py`, and `artifacts/` and `*.joblib` are git-ignored.
+- **Bad input fails politely.** Wrong columns, unparsable timestamps, non-numeric values, gaps, duplicates and impossible temperatures produce a readable message instead of a crash.
+
+Even so, don't upload sensitive meter data to a public deployment you haven't reviewed.
 
 ## Project structure
 
