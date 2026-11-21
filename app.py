@@ -140,10 +140,15 @@ with st.sidebar:
     st.markdown("**Data source**")
     has_upload = "upload_df" in ss
     options = ["Synthetic demo"] + ([f"Uploaded: {ss['upload_name']}"] if has_upload else [])
-    source = st.radio("Data source", options, index=len(options) - 1 if ss.get("use_upload") and has_upload else 0,
-                      label_visibility="collapsed", key="source_choice")
-    use_upload = has_upload and source != "Synthetic demo"
-    ss["use_upload"] = use_upload
+    # The choice lives in plain session state ("use_upload"); the radio only mirrors it. Widget state can be
+    # reset when the user switches pages, so the app must not read the data source from the widget itself.
+    use_upload = bool(has_upload and ss.get("use_upload"))
+    ss["source_choice"] = options[-1] if use_upload else options[0]
+
+    def _pick_source():
+        ss["use_upload"] = ss["source_choice"] != "Synthetic demo"
+
+    st.radio("Data source", options, label_visibility="collapsed", key="source_choice", on_change=_pick_source)
     if not use_upload:
         days = st.select_slider("History length (days)", [60, 90, 120, 180, 270, 365, 540, 730], value=365,
                                 help="Length of the synthetic hourly history.")
@@ -537,7 +542,6 @@ def page_data():
                         if ss.get("upload_hash") != h:
                             if st.button("Analyse this file", type="primary"):
                                 ss.update(upload_df=clean, upload_name=up.name[:60], upload_hash=h, use_upload=True)
-                                ss.pop("source_choice", None)
                                 st.rerun()
                         else:
                             st.caption("This file is the active data source.")

@@ -134,10 +134,25 @@ def main() -> int:
         print(f"  valid file     analysed as uploaded data: {ok}")
         if not ok:
             failures.append(("upload", "upload not activated"))
+        # move between pages with the sidebar (same session): the upload must stay the active data source
+        titles = {"command": "Energy Command Center", "forecast": "Demand Forecasting", "anomalies": "Anomaly Intelligence",
+                  "cost": "Cost Intelligence", "data": "Data Explorer", "model": "Model Performance"}
         for path, name in PAGES:
-            page.goto(f"{base}/{path}", wait_until="networkidle")
-            idle(page)
+            page.get_by_role("link", name=titles[name]).click()
+            idle(page, 2)
+            kept = page.get_by_text("Uploaded data: my_site.csv").count() > 0
+            if not kept:
+                failures.append((f"upload-{name}", "data source reset after page switch"))
             check(page, f"upload-{name}", failures, 1)
+        page.get_by_text("Synthetic demo", exact=True).click()
+        idle(page, 3)
+        back = page.get_by_text("Synthetic demonstration data").count() > 0
+        page.get_by_role("link", name="Demand Forecasting").click()
+        idle(page, 2)
+        still = page.get_by_text("Synthetic demonstration data").count() > 0
+        print(f"  switch back    demo restored: {back}, kept after page switch: {still}")
+        if not (back and still):
+            failures.append(("upload", "could not switch back to synthetic demo"))
         browser.close()
     if failures:
         print("FAILED:", failures)
